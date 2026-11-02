@@ -1,0 +1,264 @@
+import { PortfolioProject } from '../models/project.model';
+
+export const PROJECTS_DATA: PortfolioProject[] = [
+  {
+    slug: 'horizon',
+    title: 'Horizon — All-in-One Travel Booking Platform',
+    tagline: 'Multi-Role Marketplace with Context-Grounded AI Concierge & Real-Time GIS Tracking',
+    category: 'Full-Stack Enterprise Web Application',
+    featured: true,
+    status: 'implemented',
+    role: 'Lead Architect & Full-Stack Developer',
+    timeline: '2025',
+    badgeLabel: 'Primary Flagship',
+    coverGradient: 'from-emerald-950/40 to-slate-950/80',
+    summary:
+      'A comprehensive tourism operating system and travel marketplace uniting Tourists, Transport/Hotel Service Providers, Certified Guides, and System Administrators with dynamic GIS tracking, group split-settlements, and an inventory-grounded Gemini AI Concierge.',
+    overview:
+      'Modern travel coordination is severely fragmented across disconnected ticketing systems, word-of-mouth guide bookings, and ad-hoc split sheets. Horizon consolidates the entire travel lifecycle into a unified ecosystem built on Spring Boot 4.1 (Java 25) and Angular 22.',
+    technologies: [
+      'Java 25',
+      'Spring Boot 4.1',
+      'Spring Security 7',
+      'Angular 22',
+      'TypeScript 6',
+      'PostgreSQL 16',
+      'Google Gemini 3.6 Flash',
+      'Leaflet GIS',
+      'Spring Data JPA',
+      'Tailwind CSS / Bootstrap'
+    ],
+    keyHighlights: [
+      '4 distinct user personas (Tourist, Service Provider, Tour Guide, Administrator) with isolated dashboards.',
+      'Per-User HMAC-SHA token signing using BCrypt password hashes, enabling zero-blacklist instant revocation.',
+      'Context-grounded Gemini 3.6 Flash integration enforcing server-side inventory verification against DB slots.',
+      'Interactive Leaflet GIS map displaying live GPS beacons from Tour Guide location broadcasters.',
+      'Multi-tenant commission ledger, group join-code coordination, and automated PDF invoice generation.'
+    ],
+    features: [
+      {
+        title: 'Multi-Role Role-Based Access Control (RBAC)',
+        description:
+          'Strict security filters and Angular route guards partition features across Tourist, Provider, Guide, and Administrator tiers.',
+        status: 'implemented',
+        codeReference: 'SecurityConfig.java, role-guard.ts, AuthController.java'
+      },
+      {
+        title: 'Per-User Dynamic HMAC Token Revocation',
+        description:
+          'JWTs are signed dynamically using each user\'s individual BCrypt password hash as the HMAC secret key. Changing a password immediately invalidates all active tokens across devices without needing a shared Redis blacklist.',
+        status: 'implemented',
+        codeReference: 'JwtService.java, AuthProvider.java, AuthFilter.java'
+      },
+      {
+        title: 'Context-Grounded Gemini AI Concierge',
+        description:
+          'Tourist travel inquiries query the active database inventory (available transport slots, certified guides, active groups) before prompting Gemini 3.6 Flash. The returned JSON commands trigger automated client-side filters without hallucinated IDs.',
+        status: 'implemented',
+        codeReference: 'AiChatController.java, AiChatService.java'
+      },
+      {
+        title: 'Interactive Leaflet GIS & Live Guide Radar',
+        description:
+          'HTML5 Geolocation transmission coordinates tourist and tour guide locations on OpenStreetMap Leaflet layers with live beacon updates.',
+        status: 'implemented',
+        codeReference: 'LocationController.java, location.ts, Leaflet maps'
+      },
+      {
+        title: 'Group Travel Coordination & Split-Settlements',
+        description:
+          'Travelers create expeditions, invite companions via 6-character alphanumeric join codes, attach master bookings, and track individual settlement statuses.',
+        status: 'implemented',
+        codeReference: 'GroupController.java, GroupService.java'
+      },
+      {
+        title: 'Multi-Tenant Commission Ledger & Invoicing',
+        description:
+          'Automated platform commission withholding calculation, merchant net receivables accounting, and client-side PDF/Excel export via jsPDF and SheetJS.',
+        status: 'implemented',
+        codeReference: 'PaymentController.java, table-export.ts, CommissionSearchRequest.java'
+      },
+      {
+        title: 'Real-Time WebSocket STOMP Telemetry',
+        description:
+          'Sub-second bidirectional socket updates for active guide tracking and group messaging.',
+        status: 'planned',
+        codeReference: 'Documented roadmap item (HTTP polling currently active)'
+      }
+    ],
+    technicalChallenges: [
+      {
+        challenge:
+          'Eliminating distributed token revocation storage while preventing compromised JWT persistence after password changes.',
+        solution:
+          'Signed tokens with HMAC-SHA256 using the user\'s BCrypt hash string as the secret. When a password is changed, the BCrypt hash changes in the database, automatically rendering prior signatures mathematically invalid.'
+      },
+      {
+        challenge:
+          'Preventing LLM hallucinations when recommending bus tickets, hotels, and tourist guides in natural language.',
+        solution:
+          'Constructed a 30-second cached database snapshot injected directly into the Gemini 3.6 Flash system context. Implemented a strict server-side JSON schema validation step checking all returned slot IDs against active records before browser response.'
+      }
+    ],
+    architecturalDecisions: [
+      {
+        decision: 'Decoupled Client-Server REST Contract',
+        rationale:
+          'Separated the Angular 22 SPA from the Spring Boot backend on dedicated ports (54200 and 58080) to enable independent scaling and native Android client integration.'
+      },
+      {
+        decision: 'Layered Spring Architecture with JPA Auditing',
+        rationale:
+          'Controllers interact strictly with domain services returning DTOs, keeping domain persistence logic completely isolated from HTTP concerns.'
+      }
+    ],
+    lessonsLearned: [
+      'Grounded AI integrations require strict deterministic boundaries; LLMs should act as intent parsers rather than autonomous transaction creators.',
+      'Fine-grained role authorization is easiest to audit when enforced simultaneously at the route guard level (Angular) and the HTTP security filter chain (Spring Boot).'
+    ],
+    githubUrl: 'https://github.com/ali8012026masr/Horizon-All-in-one-Travel-Booking-Web-App',
+    demoCredentials: [
+      { role: 'Administrator', email: 'admin@horizon.demo', pass: 'demo1234' },
+      { role: 'Service Provider', email: 'provider@horizon.demo', pass: 'demo1234' },
+      { role: 'Tour Guide', email: 'guide@horizon.demo', pass: 'demo1234' },
+      { role: 'Tourist', email: 'tourist@horizon.demo', pass: 'demo1234' }
+    ]
+  },
+  {
+    slug: 'bangla-akinator',
+    title: 'বাংলা জ্বিন (Bangla Akinator)',
+    tagline: 'Probabilistic 20-Questions Guessing Engine Powered by Information Theory',
+    category: 'Algorithmic Backend & Probabilistic Inference',
+    featured: true,
+    status: 'prototype',
+    role: 'Algorithm Engineer & Backend Developer',
+    timeline: '2025',
+    badgeLabel: 'Secondary Showcase',
+    coverGradient: 'from-teal-950/40 to-slate-950/80',
+    summary:
+      'A probabilistic 20-questions guessing game dedicated to Bangladeshi and Bengali cultural personalities, historical figures, and legends. Powered by Information Theory (Shannon Entropy Expected Information Gain) and Bayesian inference.',
+    overview:
+      'Bangla Akinator models character identification mathematically. Instead of rigid decision trees, the system maintains a probability distribution across candidate personalities and greedily chooses questions that maximize Expected Information Gain (EIG).',
+    technologies: [
+      'Python 3.11',
+      'FastAPI (Minor Backend)',
+      'MongoDB 7.0',
+      'Flutter 3.x',
+      'Information Theory',
+      'Bayesian Inference',
+      'Docker Compose'
+    ],
+    keyHighlights: [
+      'Greedy question selection maximizing Shannon Entropy Expected Information Gain (EIG).',
+      'Bayesian log-weight updates with log-sum-exp normalization preventing floating-point underflow.',
+      'Categorical likelihood table modeling 5 player responses (YES, PROBABLY_YES, UNKNOWN, PROBABLY_NO, NO).',
+      'Bengali Unicode normalization (NFC) and moderated community contribution queue.',
+      '26 automated unit and simulation tests validating mathematical models.'
+    ],
+    features: [
+      {
+        title: 'Expected Information Gain (EIG) Question Selector',
+        description:
+          'Evaluates candidate questions and greedily selects the unasked question that minimizes conditional Shannon entropy across remaining characters.',
+        status: 'implemented',
+        codeReference: 'question_selection.py'
+      },
+      {
+        title: 'Bayesian Log-Probability Inference Engine',
+        description:
+          'Normalizes probabilities using numerically stable log-sum-exp algorithms to prevent arithmetic underflow across 20 consecutive responses.',
+        status: 'implemented',
+        codeReference: 'game_engine.py'
+      },
+      {
+        title: 'Community Contribution & Moderation Pipeline',
+        description:
+          'When the engine is defeated, users submit missing characters. Inputs are normalized to Unicode NFC and stored in MongoDB pending moderation.',
+        status: 'implemented',
+        codeReference: 'contribution_service.py'
+      }
+    ],
+    technicalChallenges: [
+      {
+        challenge:
+          'Floating point underflow during probability compounding across 20+ question sequences.',
+        solution:
+          'Operated entirely in log-space, implementing log-sum-exp normalization to maintain numerical stability without precision degradation.'
+      }
+    ],
+    architecturalDecisions: [
+      {
+        decision: 'Decoupled Probabilistic Engine as Asynchronous REST Microservice',
+        rationale:
+          'Encapsulated the mathematical calculations within FastAPI so client applications (Flutter/Web) simply consume lightweight session state.'
+      }
+    ],
+    lessonsLearned: [
+      'Information theory principles translate directly into efficient search spaces and minimal user interaction steps.'
+    ],
+    githubUrl: 'https://github.com/ali8012026masr/bangla_akinator'
+  },
+  {
+    slug: 'horizon-tourist',
+    title: 'Horizon Tourist (Android)',
+    tagline: 'Native Mobile Tourist Companion with Live GPS Telemetry & Retrofit Networking',
+    category: 'Mobile Client Architecture',
+    featured: false,
+    status: 'implemented',
+    role: 'Android Developer',
+    timeline: '2025',
+    badgeLabel: 'Supporting Client',
+    coverGradient: 'from-amber-950/40 to-slate-950/80',
+    summary:
+      'Native Android mobile application built with Java and XML Layouts communicating with the Horizon Spring Boot backend to deliver mobile bookings, live GPS tracking, and AI concierge access.',
+    overview:
+      'Engineered to demonstrate multi-client backend architecture. The Android client shares the same Spring Boot REST endpoints, authorization filters, and JWT lifecycles as the Angular web frontend.',
+    technologies: [
+      'Java (Android)',
+      'XML Layouts',
+      'Retrofit 2',
+      'HTML5/Android Location API',
+      'Spring Boot REST Integration'
+    ],
+    keyHighlights: [
+      'Retrofit HTTP client with token auth interceptor.',
+      'Live GPS location broadcaster and tour guide radar.',
+      'Synchronized cart, bookings, and group trip messaging.'
+    ],
+    features: [
+      {
+        title: 'Retrofit Authenticated Network Client',
+        description:
+          'Intercepts all outgoing requests to inject Bearer tokens and handles automatic session expiration errors.',
+        status: 'implemented',
+        codeReference: 'ApiClient.java, AuthInterceptor.java'
+      },
+      {
+        title: 'Mobile GPS Location Transmitter',
+        description:
+          'Broadcasts high-precision mobile coordinates to the central Horizon location service during active tours.',
+        status: 'implemented',
+        codeReference: 'Location.java, ApiService.java'
+      }
+    ],
+    technicalChallenges: [
+      {
+        challenge:
+          'Graceful offline degradation and token synchronization during intermittent network transitions.',
+        solution:
+          'Implemented cached session state and unified error handlers inside ApiCallback.'
+      }
+    ],
+    architecturalDecisions: [
+      {
+        decision: 'Shared REST API Contract with Angular Web App',
+        rationale:
+          'Proves backend versatility: one unified Spring Boot API securely serves both web and mobile clients.'
+      }
+    ],
+    lessonsLearned: [
+      'Designing strict RESTful API contracts upfront enables parallel web and mobile client development without backend refactoring.'
+    ],
+    githubUrl: 'https://github.com/ali8012026masr/HorizonTourist'
+  }
+];

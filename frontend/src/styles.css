@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-hover: var(--bg-surface-hover);
+  --color-border: var(--border-color);
+  --color-border-subtle: var(--border-subtle);
+  
+  --color-text-main: var(--text-primary);
+  --color-text-muted: var(--text-secondary);
+  --color-text-dim: var(--text-muted);
+
+  --color-accent: var(--accent-primary);
+  --color-accent-hover: var(--accent-secondary);
+  --color-accent-badge: var(--accent-badge);
+  --color-accent-badge-text: var(--accent-badge-text);
+  --color-amber-accent: var(--color-amber);
+  --color-amber-bg: var(--color-amber-bg);
+}
+
+/* ==========================================================================
+   Design Tokens & CSS Variables
+   ========================================================================== */
+
+:root {
+  /* Default: Warm Rice Paper Light Theme */
+  --bg-canvas: #FAF9F5;
+  --bg-surface: #F1EFEA;
+  --bg-surface-hover: #E8E5DD;
+  --border-color: #DDD8CD;
+  --border-subtle: #E5E0D5;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --accent-primary: #15803D;
+  --accent-secondary: #16A34A;
+  --accent-badge: #DCFCE7;
+  --accent-badge-text: #166534;
+  --color-amber: #B45309;
+  --color-amber-bg: rgba(180, 83, 9, 0.12);
+  --code-bg: #EAE6DD;
+}
+
+/* Automatic System Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-canvas: #111614;
+    --bg-surface: #17201C;
+    --bg-surface-hover: #1E2B25;
+    --border-color: #26362E;
+    --border-subtle: #1C2621;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --accent-primary: #22C55E;
+    --accent-secondary: #4ADE80;
+    --accent-badge: #14532D;
+    --accent-badge-text: #86EFAC;
+    --color-amber: #F59E0B;
+    --color-amber-bg: rgba(245, 158, 11, 0.15);
+    --code-bg: #0D1210;
+  }
+}
+
+/* Explicit Light Mode Override */
+[data-theme="light"] {
+  --bg-canvas: #FAF9F5;
+  --bg-surface: #F1EFEA;
+  --bg-surface-hover: #E8E5DD;
+  --border-color: #DDD8CD;
+  --border-subtle: #E5E0D5;
+  --text-primary: #1E293B;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --accent-primary: #15803D;
+  --accent-secondary: #16A34A;
+  --accent-badge: #DCFCE7;
+  --accent-badge-text: #166534;
+  --color-amber: #B45309;
+  --color-amber-bg: rgba(180, 83, 9, 0.12);
+  --code-bg: #EAE6DD;
+}
+
+/* Explicit Dark Mode Override */
+[data-theme="dark"] {
+  --bg-canvas: #111614;
+  --bg-surface: #17201C;
+  --bg-surface-hover: #1E2B25;
+  --border-color: #26362E;
+  --border-subtle: #1C2621;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent-primary: #22C55E;
+  --accent-secondary: #4ADE80;
+  --accent-badge: #14532D;
+  --accent-badge-text: #86EFAC;
+  --color-amber: #F59E0B;
+  --color-amber-bg: rgba(245, 158, 11, 0.15);
+  --code-bg: #0D1210;
+}
+
+/* ==========================================================================
+   Base Global Typography and Defaults
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+/* Accessible focus visible outlines */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
