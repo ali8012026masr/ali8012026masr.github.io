@@ -8,7 +8,7 @@ export const PROFILE_DATA: ProfileData = {
   location: 'Dhaka, Bangladesh',
   availability: 'Available for Developer Opportunities',
   isAvailable: true,
-  email: 'ali.dev@example.com',
+  email: 'mohammadalisikder-65-2019317881@zoo.du.ac.bd',
   github: 'https://github.com/ali8012026masr',
   linkedin: 'https://linkedin.com/in/ali8012026masr',
   cvUrl: 'documents/ali-cv.pdf',
@@ -53,7 +53,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: 'Email',
-    url: 'mailto:ali.dev@example.com',
+    url: 'mailto:mohammadalisikder-65-2019317881@zoo.du.ac.bd',
     iconName: 'mail',
     isExternal: false
   }
