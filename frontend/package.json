@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:gh-pages": "ng build --base-href /MyPortfolio/ && powershell -Command \"Copy-Item dist/frontend/browser/index.html dist/frontend/browser/404.html\"",
-    "deploy": "ng build --base-href /MyPortfolio/ && npx ngh --dir=dist/frontend/browser",
+    "deploy": "ng build --base-href / && npx ngh --dir=dist/frontend/browser",
+    "deploy:myportfolio": "ng build --base-href /MyPortfolio/ && npx ngh --dir=dist/frontend/browser --repo=https://github.com/ali8012026masr/MyPortfolio.git",
     "deploy:user-site": "ng build --base-href / && npx ngh --dir=dist/frontend/browser --repo=https://github.com/ali8012026masr/ali8012026masr.github.io.git",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

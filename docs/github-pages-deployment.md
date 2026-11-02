@@ -1,55 +1,47 @@
-# GitHub Pages Deployment Guide
+# GitHub Pages Deployment Guide (angular-cli-ghpages)
 
-**Target Site:** `https://ali8012026masr.github.io/`  
-**Repository Name:** `ali8012026masr.github.io`  
-**Method:** Automated GitHub Actions Workflow (`.github/workflows/deploy.yml`)
+This guide documents the deployment workflow using `angular-cli-ghpages` (`ngh`), which builds the Angular 22 application and publishes the compiled static assets directly to the `gh-pages` branch.
 
 ---
 
-## 1. Prerequisites & Repository Configuration
+## 1. Quick Deploy Commands
 
-1. **Confirm Repository Settings on GitHub:**
-   - Navigate to `https://github.com/ali8012026masr/ali8012026masr.github.io/settings/pages`.
-   - Under **Build and deployment > Source**, select **GitHub Actions** (not "Deploy from a branch").
+From the `frontend` directory:
 
-2. **Root Base Href (`/`):**
-   - Because the repository name matches `username.github.io`, it serves directly from the domain root (`https://ali8012026masr.github.io/`).
-   - The Angular build uses `--base-href /`.
-
----
-
-## 2. SPA Deep-Linking & `404.html` Solution
-
-Standard GitHub Pages servers return a generic 404 error when visitors directly access or refresh deep links such as `/projects/horizon`.
-
-### How Our Automated Solution Works:
-1. In the build step, `index.html` is automatically copied to `404.html` in the build distribution directory (`dist/frontend/browser/`).
-2. When a visitor requests `/projects/horizon`, GitHub Pages serves `404.html`.
-3. Because `404.html` is our Angular SPA shell, Angular initializes, reads the browser URL path `/projects/horizon`, and immediately routes to the corresponding case study component without flashing a 404 error.
-
----
-
-## 3. Deployment Workflow Trigger
-
-Any push to the `main` branch automatically triggers `.github/workflows/deploy.yml`:
+### For User Site: `https://ali8012026masr.github.io/`
 ```bash
-git add .
-git commit -m "feat: complete portfolio build with case studies"
-git push origin main
+cd frontend
+npm run deploy:user-site
 ```
+*Builds with base href `/` and publishes to branch `gh-pages` on `ali8012026masr.github.io`.*
 
-To trigger manually:
-- Go to the **Actions** tab in your GitHub repository.
-- Select **Deploy Portfolio to GitHub Pages**.
-- Click **Run workflow**.
+### For Project Repository: `https://ali8012026masr.github.io/MyPortfolio/`
+```bash
+cd frontend
+npm run deploy:myportfolio
+```
+*Builds with base href `/MyPortfolio/` and publishes to branch `gh-pages` on `MyPortfolio`.*
 
 ---
 
-## 4. Post-Deployment Verification Checklist
+## 2. GitHub Pages Settings Configuration
 
-- [ ] Homepage loads over HTTPS at `https://ali8012026masr.github.io/`.
-- [ ] Direct navigation to `https://ali8012026masr.github.io/projects/horizon` loads the case study.
-- [ ] Hard page refresh on `/projects/horizon` works without a 404 error.
-- [ ] Theme toggling between Light, Dark, and System persists across reloads.
-- [ ] CV download downloads `Mohammad-Ali-Sikder-Ramim-CV.pdf`.
-- [ ] Email copy button copies address to clipboard.
+To display the deployed Angular frontend instead of a README markdown page:
+
+1. Open your repository settings on GitHub:
+   * **For `ali8012026masr.github.io`:** [Settings > Pages](https://github.com/ali8012026masr/ali8012026masr.github.io/settings/pages)
+   * **For `MyPortfolio`:** [Settings > Pages](https://github.com/ali8012026masr/MyPortfolio/settings/pages)
+2. Under **Build and deployment**:
+   * **Source:** Select **Deploy from a branch**
+   * **Branch:** Select **`gh-pages`**
+   * **Folder:** Select **`/ (root)`**
+3. Click **Save**.
+
+---
+
+## 3. What `angular-cli-ghpages` Automates
+
+When `npx ngh` runs, it automatically handles key static hosting requirements:
+- **`404.html` Creation:** Duplicates `index.html` to `404.html` so that Angular Router deep links (e.g., `/projects/horizon`) work on hard refresh without 404 errors.
+- **`.nojekyll` File:** Generates a `.nojekyll` file at the root of `gh-pages`, preventing GitHub Pages from executing Jekyll transformations.
+- **Isolated Branch:** Keeps your source code on `main` and compiled production assets on `gh-pages`.
