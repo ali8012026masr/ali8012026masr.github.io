@@ -125,18 +125,141 @@ export const PROJECTS_DATA: PortfolioProject[] = [
     ]
   },
   {
+    slug: 'horizon-tourist',
+    title: 'Horizon Tourist (Android)',
+    tagline: 'Native Mobile Tourist Companion with Live GPS Telemetry & Retrofit Networking',
+    category: 'Mobile Client Architecture (Native Android)',
+    featured: true,
+    status: 'implemented',
+    role: 'Android Developer',
+    timeline: '2025',
+    badgeLabel: 'Android Showcase',
+    coverGradient: 'from-amber-950/40 to-slate-950/80',
+    summary:
+      'Native Android mobile application built with Java and XML Layouts communicating with the Horizon Spring Boot backend to deliver mobile bookings, live GPS tracking, and AI concierge access.',
+    overview:
+      'Engineered to demonstrate multi-client backend architecture. The Android client shares the same Spring Boot REST endpoints, authorization filters, and JWT lifecycles as the Angular web frontend.',
+    technologies: [
+      'Java (Android)',
+      'XML Layouts',
+      'Retrofit 2',
+      'Android Location API',
+      'Spring Boot REST Integration'
+    ],
+    keyHighlights: [
+      'Retrofit HTTP client with token auth interceptor.',
+      'Live GPS location broadcaster and tour guide radar.',
+      'Synchronized cart, bookings, and group trip messaging.'
+    ],
+    features: [
+      {
+        title: 'Retrofit Authenticated Network Client',
+        description:
+          'Intercepts all outgoing requests to inject Bearer tokens and handles automatic session expiration errors.',
+        status: 'implemented',
+        codeReference: 'ApiClient.java, AuthInterceptor.java'
+      },
+      {
+        title: 'Mobile GPS Location Transmitter',
+        description:
+          'Broadcasts high-precision mobile coordinates to the central Horizon location service during active tours.',
+        status: 'implemented',
+        codeReference: 'Location.java, ApiService.java'
+      }
+    ],
+    technicalChallenges: [
+      {
+        challenge:
+          'Graceful offline degradation and token synchronization during intermittent network transitions.',
+        solution:
+          'Implemented cached session state and unified error handlers inside ApiCallback.'
+      }
+    ],
+    architecturalDecisions: [
+      {
+        decision: 'Shared REST API Contract with Angular Web App',
+        rationale:
+          'Proves backend versatility: one unified Spring Boot API securely serves both web and mobile clients.'
+      }
+    ],
+    lessonsLearned: [
+      'Designing strict RESTful API contracts upfront enables parallel web and mobile client development without backend refactoring.'
+    ],
+    githubUrl: 'https://github.com/ali8012026masr/HorizonTourist'
+  },
+  {
+    slug: 'horizon-flutter',
+    title: 'Horizon Mobile (Flutter)',
+    tagline: 'Cross-Platform Mobile Tourist Client with Riverpod State & Responsive UI',
+    category: 'Mobile Client Architecture (Flutter & Dart)',
+    featured: true,
+    status: 'prototype',
+    role: 'Mobile Developer',
+    timeline: '2025',
+    badgeLabel: 'Flutter Showcase',
+    coverGradient: 'from-blue-950/40 to-slate-950/80',
+    summary:
+      'Cross-platform mobile application built with Flutter 3.x and Dart communicating with the Horizon Spring Boot backend. Features responsive mobile booking flows, tourist guide directory, and clean state management via Riverpod.',
+    overview:
+      'Developed as a cross-platform companion for the Horizon ecosystem. Shares the same REST API contracts, authentication lifecycles, and catalog endpoints as the Angular web platform and Native Android client.',
+    technologies: [
+      'Flutter 3.x',
+      'Dart',
+      'Riverpod',
+      'REST API Integration',
+      'Material 3 UI'
+    ],
+    keyHighlights: [
+      'Cross-platform iOS & Android responsive interface using Flutter Material 3.',
+      'Decoupled state management using Riverpod providers and immutable state.',
+      'Shared RESTful authentication and catalog consumption with Spring Boot backend.'
+    ],
+    features: [
+      {
+        title: 'Reactive State Architecture with Riverpod',
+        description:
+          'Stateful booking forms and filter dialogs isolated using declarative Riverpod providers for predictable UI updates.',
+        status: 'implemented',
+        codeReference: 'lib/providers/, lib/models/'
+      },
+      {
+        title: 'Cross-Platform API Interceptor',
+        description:
+          'Centralized HTTP client injecting JWT Bearer headers and handling network re-authentication.',
+        status: 'implemented',
+        codeReference: 'lib/services/api_service.dart'
+      }
+    ],
+    technicalChallenges: [
+      {
+        challenge: 'Synchronizing multi-step booking state across mobile viewports.',
+        solution: 'Employed immutable domain models and Riverpod state notifiers to manage transactional flow.'
+      }
+    ],
+    architecturalDecisions: [
+      {
+        decision: 'Unified DTO Contracts Across Web, Android, and Flutter',
+        rationale: 'Demonstrates versatile full-stack architecture where Spring Boot services three independent clients.'
+      }
+    ],
+    lessonsLearned: [
+      'Declarative cross-platform UI dramatically accelerates mobile client iterations against pre-established REST APIs.'
+    ],
+    githubUrl: 'https://github.com/ali8012026masr/horizonflutter'
+  },
+  {
     slug: 'bangla-akinator',
     title: 'বাংলা জ্বিন (Bangla Akinator)',
     tagline: 'Probabilistic 20-Questions Guessing Engine Powered by Information Theory',
     category: 'Algorithmic Backend & Probabilistic Inference',
-    featured: true,
+    featured: false,
     status: 'prototype',
     role: 'Algorithm Engineer & Backend Developer',
     timeline: '2025',
-    badgeLabel: 'Secondary Showcase',
+    badgeLabel: 'Algorithmic Showcase',
     coverGradient: 'from-teal-950/40 to-slate-950/80',
     summary:
-      'A probabilistic 20-questions guessing game dedicated to Bangladeshi and Bengali cultural personalities, historical figures, and legends. Powered by Information Theory (Shannon Entropy Expected Information Gain) and Bayesian inference.',
+      'A probabilistic 20-questions guessing game dedicated to Bangladeshi cultural personalities and historical figures. Powered by Shannon Entropy Expected Information Gain and Bayesian log-sum-exp inference.',
     overview:
       'Bangla Akinator models character identification mathematically. Instead of rigid decision trees, the system maintains a probability distribution across candidate personalities and greedily chooses questions that maximize Expected Information Gain (EIG).',
     technologies: [
@@ -197,68 +320,5 @@ export const PROJECTS_DATA: PortfolioProject[] = [
       'Information theory principles translate directly into efficient search spaces and minimal user interaction steps.'
     ],
     githubUrl: 'https://github.com/ali8012026masr/bangla_akinator'
-  },
-  {
-    slug: 'horizon-tourist',
-    title: 'Horizon Tourist (Android)',
-    tagline: 'Native Mobile Tourist Companion with Live GPS Telemetry & Retrofit Networking',
-    category: 'Mobile Client Architecture',
-    featured: false,
-    status: 'implemented',
-    role: 'Android Developer',
-    timeline: '2025',
-    badgeLabel: 'Supporting Client',
-    coverGradient: 'from-amber-950/40 to-slate-950/80',
-    summary:
-      'Native Android mobile application built with Java and XML Layouts communicating with the Horizon Spring Boot backend to deliver mobile bookings, live GPS tracking, and AI concierge access.',
-    overview:
-      'Engineered to demonstrate multi-client backend architecture. The Android client shares the same Spring Boot REST endpoints, authorization filters, and JWT lifecycles as the Angular web frontend.',
-    technologies: [
-      'Java (Android)',
-      'XML Layouts',
-      'Retrofit 2',
-      'HTML5/Android Location API',
-      'Spring Boot REST Integration'
-    ],
-    keyHighlights: [
-      'Retrofit HTTP client with token auth interceptor.',
-      'Live GPS location broadcaster and tour guide radar.',
-      'Synchronized cart, bookings, and group trip messaging.'
-    ],
-    features: [
-      {
-        title: 'Retrofit Authenticated Network Client',
-        description:
-          'Intercepts all outgoing requests to inject Bearer tokens and handles automatic session expiration errors.',
-        status: 'implemented',
-        codeReference: 'ApiClient.java, AuthInterceptor.java'
-      },
-      {
-        title: 'Mobile GPS Location Transmitter',
-        description:
-          'Broadcasts high-precision mobile coordinates to the central Horizon location service during active tours.',
-        status: 'implemented',
-        codeReference: 'Location.java, ApiService.java'
-      }
-    ],
-    technicalChallenges: [
-      {
-        challenge:
-          'Graceful offline degradation and token synchronization during intermittent network transitions.',
-        solution:
-          'Implemented cached session state and unified error handlers inside ApiCallback.'
-      }
-    ],
-    architecturalDecisions: [
-      {
-        decision: 'Shared REST API Contract with Angular Web App',
-        rationale:
-          'Proves backend versatility: one unified Spring Boot API securely serves both web and mobile clients.'
-      }
-    ],
-    lessonsLearned: [
-      'Designing strict RESTful API contracts upfront enables parallel web and mobile client development without backend refactoring.'
-    ],
-    githubUrl: 'https://github.com/ali8012026masr/HorizonTourist'
   }
 ];

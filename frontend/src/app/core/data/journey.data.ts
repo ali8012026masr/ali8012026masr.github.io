@@ -3,42 +3,42 @@ import { TimelineItem } from '../models/profile.model';
 export const JOURNEY_TIMELINE: TimelineItem[] = [
   {
     year: '2025 – Present',
-    period: 'Capstone & Production Polish',
-    title: 'Enterprise Full-Stack Architecture',
-    institution: 'Horizon Travel Marketplace & Bangla Akinator',
-    badge: 'Milestone Project',
+    period: 'Capstone & Multi-Client Architecture',
+    title: 'Enterprise Full-Stack Ecosystem',
+    institution: 'Horizon Travel Marketplace (Web · Android · Flutter)',
+    badge: 'Flagship Milestone',
     description:
-      'Engineered Horizon: a full-stack, 4-role travel booking platform with Java 25 / Spring Boot 4 on the backend and Angular 22 on the frontend. Implemented per-user HMAC token invalidation, Leaflet GIS tracking, and Gemini 3.6 Flash database catalog injection.',
-    tags: ['Java', 'Spring Boot', 'Angular', 'PostgreSQL', 'Security', 'Gemini AI']
+      'Architected Horizon: a full-stack platform with Spring Boot 4 / Java 25 backend, Angular 22 web SPA, and dedicated Android (Retrofit) and Flutter mobile clients. Implemented dynamic HMAC token invalidation, Leaflet GIS tracking, and Gemini AI catalog grounding.',
+    tags: ['Java 25', 'Spring Boot', 'Angular 22', 'Android', 'Flutter', 'PostgreSQL']
   },
   {
     year: '2024 – 2025',
-    period: 'Intensive Professional Training',
+    period: 'Intensive Enterprise Training',
     title: 'Full-Stack Web Development Scholar',
     institution: 'IsDB-BISEW IT Scholarship Programme',
-    badge: 'Scholarship',
+    badge: 'Professional Scholarship',
     description:
-      'Selected for the competitive Islamic Development Bank IT Scholarship programme. Completed intensive full-time training covering Java SE/EE, Spring Boot, Hibernate/JPA, Angular, TypeScript, relational database modeling, and software engineering methodologies.',
+      'Completed an intensive, full-time enterprise curriculum covering Java SE/EE, Spring Boot, Hibernate/JPA, Angular, TypeScript, relational database modeling, and software engineering methodologies.',
     tags: ['Spring Framework', 'Angular', 'JPA/Hibernate', 'SQL', 'OOP', 'REST APIs']
   },
   {
     year: '2023 – 2024',
-    period: 'Foundational Exploration',
-    title: 'Java Fundamentals & Database Connectivity',
-    institution: 'Independent Learning & Academic Projects',
-    badge: 'Foundation',
+    period: 'Technical Foundation',
+    title: 'Java Fundamentals & Relational Persistence',
+    institution: 'Independent Projects & Core Engineering',
+    badge: 'Core Foundation',
     description:
-      'Constructed foundational database-driven web applications exploring JDBC connection pooling, raw SQL queries, Apache Tomcat servlets, and JSP CRUD lifecycles prior to transitioning to Spring enterprise architecture.',
+      'Engineered database-driven web applications exploring JDBC connection pooling, raw SQL queries, Apache Tomcat servlets, and JSP architectures prior to adopting the modern Spring Boot stack.',
     tags: ['Java Core', 'JDBC', 'JSP', 'SQLite', 'Tomcat']
   },
   {
-    year: 'Graduated',
+    year: 'Degree Completed',
     period: 'Academic Foundation',
-    title: 'Bachelor of Science (Honours) in Zoology',
+    title: 'BS (Honours) in Zoology',
     institution: 'University of Dhaka',
-    badge: 'Degree',
+    badge: 'Academic Science',
     description:
-      'Developed strong analytical rigor, scientific research methodology, hypothesis testing, and systemic problem-solving skills at Bangladesh’s premier academic institution, forming the methodical mindset applied to software engineering.',
-    tags: ['Analytical Thinking', 'Research Methodology', 'System Analysis']
+      'Cultivated analytical rigor, scientific research methodology, hypothesis validation, and systemic problem decomposition at Bangladesh’s premier institution, shaping a disciplined approach to software architecture.',
+    tags: ['Scientific Method', 'Systems Analysis', 'Data Interpretation']
   }
 ];

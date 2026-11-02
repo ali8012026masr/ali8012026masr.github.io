@@ -23,9 +23,9 @@ import { SeoService } from '../../core/services/seo.service';
   template: `
     <div class="space-y-4">
       <app-hero-section />
+      <app-about-section />
       <app-projects-section />
       <app-skills-section />
-      <app-about-section />
       <app-journey-section />
       <app-contact-section />
     </div>

@@ -34,13 +34,13 @@ import { PROFILE_DATA, SOCIAL_LINKS } from '../../../core/data/profile.data';
             </h4>
             <ul class="space-y-2 text-xs font-mono text-text-muted">
               <li>
-                <a href="#projects" class="hover:text-accent transition-colors">01. Projects</a>
+                <a href="#about" class="hover:text-accent transition-colors">01. About</a>
               </li>
               <li>
-                <a href="#skills" class="hover:text-accent transition-colors">02. Skills</a>
+                <a href="#projects" class="hover:text-accent transition-colors">02. Projects</a>
               </li>
               <li>
-                <a href="#about" class="hover:text-accent transition-colors">03. About</a>
+                <a href="#skills" class="hover:text-accent transition-colors">03. Skills</a>
               </li>
               <li>
                 <a href="#journey" class="hover:text-accent transition-colors">04. Journey</a>

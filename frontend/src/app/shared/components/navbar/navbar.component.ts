@@ -35,6 +35,13 @@ import { PROFILE_DATA } from '../../../core/data/profile.data';
         <nav class="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main Navigation">
           <button
             type="button"
+            (click)="scrollToSection('about')"
+            class="px-3 py-1.5 rounded-md text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            About
+          </button>
+          <button
+            type="button"
             (click)="scrollToSection('projects')"
             class="px-3 py-1.5 rounded-md text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
           >
@@ -46,13 +53,6 @@ import { PROFILE_DATA } from '../../../core/data/profile.data';
             class="px-3 py-1.5 rounded-md text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
           >
             Skills
-          </button>
-          <button
-            type="button"
-            (click)="scrollToSection('about')"
-            class="px-3 py-1.5 rounded-md text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-accent"
-          >
-            About
           </button>
           <button
             type="button"
@@ -123,24 +123,24 @@ import { PROFILE_DATA } from '../../../core/data/profile.data';
         >
           <button
             type="button"
+            (click)="scrollToSection('about')"
+            class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors"
+          >
+            01. About Me
+          </button>
+          <button
+            type="button"
             (click)="scrollToSection('projects')"
             class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors"
           >
-            01. Projects
+            02. Projects
           </button>
           <button
             type="button"
             (click)="scrollToSection('skills')"
             class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors"
           >
-            02. Technical Skills
-          </button>
-          <button
-            type="button"
-            (click)="scrollToSection('about')"
-            class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-text-muted hover:text-text-main hover:bg-surface transition-colors"
-          >
-            03. About Me
+            03. Technical Skills
           </button>
           <button
             type="button"

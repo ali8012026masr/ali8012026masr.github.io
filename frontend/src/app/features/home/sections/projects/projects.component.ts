@@ -20,7 +20,7 @@ import { ProjectService } from '../../../../core/services/project.service';
     <section id="projects" class="py-16 sm:py-24 border-t border-border/60" aria-labelledby="projects-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <app-section-header
-          number="01"
+          number="02"
           tag="Selected Projects"
           title="Verified Full-Stack Architecture"
           description="Real-world applications verified in source code and automated tests. Clearly distinguished between completed implementations, prototypes, and planned roadmaps."
@@ -112,68 +112,9 @@ import { ProjectService } from '../../../../core/services/project.service';
             </article>
           }
 
-          <!-- Grid: Secondary (Akinator) and Supporting (Android) -->
+          <!-- 2. Prioritized Mobile Engineering Grid: Android & Flutter -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- 2. Bangla Akinator -->
-            @if (akinatorProject) {
-              <article class="rounded-2xl bg-surface border border-border hover:border-accent/50 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-lg group">
-                <div>
-                  <div class="flex items-center justify-between gap-3 mb-4">
-                    <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-semibold uppercase tracking-wider bg-teal-500/15 text-teal-600 dark:text-teal-400 border border-teal-500/30">
-                      {{ akinatorProject.badgeLabel }}
-                    </span>
-                    <app-status-pill [status]="akinatorProject.status" />
-                  </div>
-
-                  <h3 class="text-xl sm:text-2xl font-display font-bold text-text-main group-hover:text-accent transition-colors">
-                    <a [routerLink]="['/projects', akinatorProject.slug]" class="focus:outline-hidden focus-visible:underline">
-                      {{ akinatorProject.title }}
-                    </a>
-                  </h3>
-                  <p class="mt-1 text-xs font-mono text-accent">
-                    {{ akinatorProject.tagline }}
-                  </p>
-
-                  <p class="mt-3 text-sm text-text-muted font-body leading-relaxed">
-                    {{ akinatorProject.summary }}
-                  </p>
-
-                  <ul class="mt-4 space-y-2 text-xs font-body text-text-main">
-                    @for (highlight of akinatorProject.keyHighlights.slice(0, 3); track highlight) {
-                      <li class="flex items-start gap-2">
-                        <span class="text-accent font-bold">•</span>
-                        <span>{{ highlight }}</span>
-                      </li>
-                    }
-                  </ul>
-
-                  <div class="mt-5 flex flex-wrap gap-1.5">
-                    @for (tech of akinatorProject.technologies; track tech) {
-                      <app-tech-badge [name]="tech" />
-                    }
-                  </div>
-                </div>
-
-                <div class="mt-8 pt-5 border-t border-border flex items-center justify-between">
-                  <a
-                    [routerLink]="['/projects', akinatorProject.slug]"
-                    class="text-xs font-mono font-semibold text-accent hover:underline flex items-center gap-1"
-                  >
-                    View Mathematical Case Study →
-                  </a>
-                  <a
-                    [href]="akinatorProject.githubUrl"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-xs font-mono text-text-muted hover:text-text-main flex items-center gap-1"
-                  >
-                    Source ↗
-                  </a>
-                </div>
-              </article>
-            }
-
-            <!-- 3. Horizon Tourist (Android) -->
+            <!-- Horizon Tourist (Native Android) -->
             @if (touristProject) {
               <article class="rounded-2xl bg-surface border border-border hover:border-accent/50 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-lg group">
                 <div>
@@ -226,7 +167,125 @@ import { ProjectService } from '../../../../core/services/project.service';
                 </div>
               </article>
             }
+
+            <!-- Horizon Mobile (Flutter) -->
+            @if (flutterProject) {
+              <article class="rounded-2xl bg-surface border border-border hover:border-accent/50 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-lg group">
+                <div>
+                  <div class="flex items-center justify-between gap-3 mb-4">
+                    <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-semibold uppercase tracking-wider bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30">
+                      {{ flutterProject.badgeLabel }}
+                    </span>
+                    <app-status-pill [status]="flutterProject.status" />
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-display font-bold text-text-main group-hover:text-accent transition-colors">
+                    {{ flutterProject.title }}
+                  </h3>
+                  <p class="mt-1 text-xs font-mono text-accent">
+                    {{ flutterProject.tagline }}
+                  </p>
+
+                  <p class="mt-3 text-sm text-text-muted font-body leading-relaxed">
+                    {{ flutterProject.summary }}
+                  </p>
+
+                  <ul class="mt-4 space-y-2 text-xs font-body text-text-main">
+                    @for (highlight of flutterProject.keyHighlights; track highlight) {
+                      <li class="flex items-start gap-2">
+                        <span class="text-accent font-bold">•</span>
+                        <span>{{ highlight }}</span>
+                      </li>
+                    }
+                  </ul>
+
+                  <div class="mt-5 flex flex-wrap gap-1.5">
+                    @for (tech of flutterProject.technologies; track tech) {
+                      <app-tech-badge [name]="tech" />
+                    }
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-5 border-t border-border flex items-center justify-between">
+                  <span class="text-xs font-mono text-text-muted">
+                    Cross-Platform Client (Flutter 3.x)
+                  </span>
+                  <a
+                    [href]="flutterProject.githubUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-mono text-text-muted hover:text-text-main flex items-center gap-1"
+                  >
+                    Repository ↗
+                  </a>
+                </div>
+              </article>
+            }
           </div>
+
+          <!-- 3. Algorithmic Project: Bangla Akinator -->
+          @if (akinatorProject) {
+            <article class="rounded-2xl bg-surface border border-border hover:border-accent/50 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between shadow-lg group">
+              <div>
+                <div class="flex items-center justify-between gap-3 mb-4">
+                  <div class="flex items-center gap-3">
+                    <span class="px-2.5 py-0.5 rounded text-[11px] font-mono font-semibold uppercase tracking-wider bg-teal-500/15 text-teal-600 dark:text-teal-400 border border-teal-500/30">
+                      {{ akinatorProject.badgeLabel }}
+                    </span>
+                    <span class="text-xs font-mono text-text-muted">
+                      {{ akinatorProject.category }}
+                    </span>
+                  </div>
+                  <app-status-pill [status]="akinatorProject.status" />
+                </div>
+
+                <h3 class="text-xl sm:text-2xl font-display font-bold text-text-main group-hover:text-accent transition-colors">
+                  <a [routerLink]="['/projects', akinatorProject.slug]" class="focus:outline-hidden focus-visible:underline">
+                    {{ akinatorProject.title }}
+                  </a>
+                </h3>
+                <p class="mt-1 text-xs font-mono text-accent">
+                  {{ akinatorProject.tagline }}
+                </p>
+
+                <p class="mt-3 text-sm text-text-muted font-body leading-relaxed max-w-3xl">
+                  {{ akinatorProject.summary }}
+                </p>
+
+                <ul class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-body text-text-main">
+                  @for (highlight of akinatorProject.keyHighlights.slice(0, 4); track highlight) {
+                    <li class="flex items-start gap-2">
+                      <span class="text-accent font-bold">•</span>
+                      <span>{{ highlight }}</span>
+                    </li>
+                  }
+                </ul>
+
+                <div class="mt-5 flex flex-wrap gap-1.5">
+                  @for (tech of akinatorProject.technologies; track tech) {
+                    <app-tech-badge [name]="tech" />
+                  }
+                </div>
+              </div>
+
+              <div class="mt-8 pt-5 border-t border-border flex items-center justify-between">
+                <a
+                  [routerLink]="['/projects', akinatorProject.slug]"
+                  class="text-xs font-mono font-semibold text-accent hover:underline flex items-center gap-1"
+                >
+                  View Algorithmic Case Study →
+                </a>
+                <a
+                  [href]="akinatorProject.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-mono text-text-muted hover:text-text-main flex items-center gap-1"
+                >
+                  Source ↗
+                </a>
+              </div>
+            </article>
+          }
         </div>
       </div>
     </section>
@@ -236,6 +295,7 @@ export class ProjectsSectionComponent {
   private readonly projectService = inject(ProjectService);
 
   readonly horizonProject = this.projectService.getProjectBySlug('horizon');
-  readonly akinatorProject = this.projectService.getProjectBySlug('bangla-akinator');
   readonly touristProject = this.projectService.getProjectBySlug('horizon-tourist');
+  readonly flutterProject = this.projectService.getProjectBySlug('horizon-flutter');
+  readonly akinatorProject = this.projectService.getProjectBySlug('bangla-akinator');
 }

@@ -11,10 +11,10 @@ import { PROFILE_DATA } from '../../../../core/data/profile.data';
     <section id="about" class="py-16 sm:py-24 border-t border-border/60" aria-labelledby="about-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <app-section-header
-          number="03"
+          number="01"
           tag="About Me"
-          title="From Biological Systems to Software Architecture"
-          description="How an academic background in natural sciences combined with intensive software training to cultivate a disciplined, systemic approach to code."
+          title="Engineering Discipline & Background"
+          description="How scientific rigor and intensive enterprise training combine into a disciplined, architecture-first approach to software development."
         />
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -28,15 +28,15 @@ import { PROFILE_DATA } from '../../../../core/data/profile.data';
 
             <div class="pt-6 border-t border-border/80 flex flex-wrap gap-6 text-xs font-mono text-text-main">
               <div>
-                <span class="text-text-dim block mb-1">Academic Background</span>
-                <span class="font-semibold text-accent">BS (Honours) in Zoology</span><br>
+                <span class="text-text-dim block mb-1">Academic Foundation</span>
+                <span class="font-semibold text-accent">BS (Honours)</span><br>
                 <span>University of Dhaka</span>
               </div>
               <div class="w-px h-10 bg-border hidden sm:block"></div>
               <div>
-                <span class="text-text-dim block mb-1">Software Scholarship</span>
-                <span class="font-semibold text-accent">Full-Stack Web Dev</span><br>
-                <span>IsDB-BISEW IT Programme</span>
+                <span class="text-text-dim block mb-1">Professional Training</span>
+                <span class="font-semibold text-accent">Full-Stack Enterprise</span><br>
+                <span>IsDB-BISEW Scholarship</span>
               </div>
               <div class="w-px h-10 bg-border hidden sm:block"></div>
               <div>

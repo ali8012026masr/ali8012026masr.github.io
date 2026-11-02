@@ -44,9 +44,9 @@ import { PROFILE_DATA } from '../../../../core/data/profile.data';
 
             <!-- Subtitle -->
             <p class="text-base sm:text-xl text-text-muted max-w-2xl font-body leading-relaxed">
-              Hi, I'm <strong class="text-text-main font-semibold">{{ profile.name }}</strong>.
-              I build enterprise-grade software with modern Spring Boot layered architectures,
-              fine-grained reactive Angular frontends, zero-blacklist JWT security, and verified database grounding.
+              Hi, I'm <strong class="text-text-main font-semibold">{{ profile.name }}</strong> ({{ profile.shortName }}).
+              I engineer resilient full-stack applications with modern Spring Boot backends,
+              reactive Angular web interfaces, and native mobile clients.
             </p>
 
             <!-- Action CTAs -->

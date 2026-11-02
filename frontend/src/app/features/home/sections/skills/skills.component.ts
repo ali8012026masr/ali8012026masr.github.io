@@ -12,7 +12,7 @@ import { SkillGroup } from '../../../../core/models/skill.model';
     <section id="skills" class="py-16 sm:py-24 border-t border-border/60" aria-labelledby="skills-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <app-section-header
-          number="02"
+          number="03"
           tag="Technical Stack"
           title="Evidence-Based Capabilities"
           description="A transparent breakdown of technologies backed by concrete implementation in repository code. No arbitrary percentages or unverified claims."
