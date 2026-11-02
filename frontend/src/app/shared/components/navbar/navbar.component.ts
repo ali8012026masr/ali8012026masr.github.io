@@ -19,11 +19,11 @@ import { PROFILE_DATA } from '../../../core/data/profile.data';
           aria-label="Mohammad Ali Sikder Ramim homepage"
         >
           <div class="w-8 h-8 rounded-lg bg-surface border border-border flex items-center justify-center font-mono font-bold text-accent text-sm group-hover:border-accent transition-colors">
-            R
+            A
           </div>
           <div class="flex flex-col">
             <span class="font-display font-bold text-sm tracking-tight text-text-main group-hover:text-accent transition-colors">
-              Ramim
+              Ali
             </span>
             <span class="text-[10px] font-mono tracking-wider text-text-muted uppercase">
               Full-Stack Dev

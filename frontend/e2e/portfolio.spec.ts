@@ -83,6 +83,6 @@ test.describe('Mohammad Ali Sikder Ramim Developer Portfolio', () => {
     expect(count).toBeGreaterThanOrEqual(1);
 
     const firstHref = await cvLinks.first().getAttribute('href');
-    expect(firstHref).toContain('ramim-cv.pdf');
+    expect(firstHref).toMatch(/(ali|ramim)-cv\.pdf/);
   });
 });

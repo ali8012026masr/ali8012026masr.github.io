@@ -17,6 +17,7 @@ export interface TimelineItem {
 
 export interface ProfileData {
   name: string;
+  shortName: string;
   title: string;
   subtitle: string;
   location: string;

@@ -13,7 +13,7 @@ export const routes: Routes = [
       import(
         './features/projects/horizon-case-study/horizon-case-study.component'
       ).then((m) => m.HorizonCaseStudyComponent),
-    title: 'Horizon Travel Marketplace Case Study — Ramim'
+    title: 'Horizon Travel Marketplace Case Study — Ali'
   },
   {
     path: 'projects/bangla-akinator',
@@ -21,7 +21,7 @@ export const routes: Routes = [
       import(
         './features/projects/akinator-case-study/akinator-case-study.component'
       ).then((m) => m.AkinatorCaseStudyComponent),
-    title: 'Bangla Akinator Algorithmic Case Study — Ramim'
+    title: 'Bangla Akinator Algorithmic Case Study — Ali'
   },
   {
     path: '**',
@@ -29,6 +29,6 @@ export const routes: Routes = [
       import('./features/not-found/not-found.component').then(
         (m) => m.NotFoundComponent
       ),
-    title: '404 Page Not Found — Ramim'
+    title: '404 Page Not Found — Ali'
   }
 ];

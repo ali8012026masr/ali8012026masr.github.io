@@ -2,15 +2,16 @@ import { ProfileData, SocialLink } from '../models/profile.model';
 
 export const PROFILE_DATA: ProfileData = {
   name: 'Mohammad Ali Sikder Ramim',
+  shortName: 'Ali',
   title: 'Full-Stack Developer',
   subtitle: 'Java · Spring Boot · Angular · TypeScript · SQL',
   location: 'Dhaka, Bangladesh',
   availability: 'Available for Developer Opportunities',
   isAvailable: true,
-  email: 'ramim.dev@example.com',
+  email: 'ali.dev@example.com',
   github: 'https://github.com/ali8012026masr',
   linkedin: 'https://linkedin.com/in/ali8012026masr',
-  cvUrl: 'documents/ramim-cv.pdf',
+  cvUrl: 'documents/ali-cv.pdf',
   hasApprovedCv: true,
   bioParagraphs: [
     'I am an early-career Full-Stack Developer with an academic foundation in Zoology (BS Honours, University of Dhaka) and rigorous, intensive software engineering training from the IsDB-BISEW IT Scholarship Programme.',
@@ -52,7 +53,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     label: 'Email',
-    url: 'mailto:ramim.dev@example.com',
+    url: 'mailto:ali.dev@example.com',
     iconName: 'mail',
     isExternal: false
   }
